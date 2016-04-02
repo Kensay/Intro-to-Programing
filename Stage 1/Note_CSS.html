@@ -1,0 +1,123 @@
+ <body>
+   <h3>What is CSS?</h3>
+  <p>CSS is code written to control the "style" of HTML elements.</p>
+  
+  <h3>How does CSS "control" HTML?</h3>
+  <p>If you want to write CSS that makes all <code>h1</code> elements have a black background and white text, you would write:    </p>
+  <pre><code>h1 {
+  background-color : black;
+  color: white;
+}
+</code></pre>
+<p>In this example, the <code>h1</code> is a <strong>selector</strong>. It says to the browser "I want you to apply the rules I'm about to tell you to every h1 element."</p>
+<p>After the <code>h1</code> there is a left curly brace <code>{</code> and at the bottom there is a matching right curly brace <code>}</code>. Everything between these curly braces will be interpreted as a "rule" that should be applied to every <code>h1</code> element.</p>
+<p>The line of code that says <code>background-color : black;</code> is a <strong>declaration</strong>. <code>background-color</code> is a <strong>property</strong> and <code>black</code> is the <strong>value</strong> of that property.</p>
+<h3>CSS Vocabulary</h3>
+<p><strong>CSS</strong>: Cascading Style Sheets. </p>
+<p><strong>Style</strong>: This word can refer to many things and so it can be confusing. It can refer to:</p>
+<ul>
+<li><p>The HTML element. For example: <code>&lt;style&gt;div {color:blue}&lt;/style&gt;</code></p></li>
+<li><p>The HTML <em>attribute</em>. For example:   <code>&lt;div style="color : blue"&gt;this text would be blue&lt;/div&gt;</code>  </p></li>
+<li><p>The general look of a web page. For example: "<em>I like that site's style</em>."</p></li>
+<li>A verb. For example: "<em>I'm making progress on my page. The structure is all done but now I have to style it.</em>"</li>
+</ul>
+<p><strong>Rule</strong>: a line of CSS code describing the value that a certain attribute should take. </p>
+<p><strong>Property</strong>: The property you want to change.</p>
+<p><strong>Value</strong>: The value that you want to assign to the attribute.</p>
+<p><strong>Selector</strong>: The name that you use to in order to target the elements that are assigned to a class or id attribute in the HTML.</p>
+<p><strong>Class</strong>: A class refers to a group of elements that can be styled together. Class names should not contain periods or any other punctuation marks such as class="1.1"</p>
+<p><strong>ID</strong>: ID's are unique identifiers that uniquely identifies an element in HTML.</p>
+<h3>Selecting by class</h3>
+<p>In the example above, we set the background-color of <em>every</em> <code>h1</code> to black. If we only want to add style to <em>certain</em> <code>h1</code>s, we can use <strong>class selectors</strong>. Try copying the following code into <a href="http://scratchpad.io/" target="_blank">scratchpad.io</a> to see how this works.</p>
+<pre><code>&lt;div class="stop"&gt;&lt;/div&gt;
+&lt;div class="slow"&gt;&lt;/div&gt;
+&lt;div class="go"&gt;&lt;/div&gt;
+
+&lt;style&gt;
+  div {
+    height : 50px;
+    width : 50px;
+    border-radius: 25px;
+  }
+  .stop {
+    background-color: red;
+  }
+  .slow {
+    background-color: yellow;
+  }
+  .go {
+    background-color: green;
+  }
+&lt;/style&gt;
+</code></pre>
+<p>We should see a traffic light. Note how in the <code>&lt;style&gt;</code> element we refer to an HTML element's class name by writing <code>.class-name</code> </p>
+<p>Also note how we can apply rules to <strong>all</strong> <code>div</code>s or just <em>certain</em> <code>div</code>s by  using the appropriate selector.</p>
+<h3>How do I include CSS Styling in my web page?</h3>
+<p>There are three ways you can do this.</p>
+<p><strong>Method 1: write CSS in the <code>&lt;head&gt;</code> of your HTML</strong> </p>
+<p>This method is good for very small projects (like what you'd do in <a href="http://scratchpad.io/" target="_blank">scratchpad.io</a>). To do this:
+1. At the top of your HTML document, add a <code>&lt;head&gt;</code> element.
+2. Inside the <code>&lt;head&gt;</code> element, add a <code>&lt;style&gt;</code> element.
+3. Write your CSS in the <code>&lt;style&gt;</code> element and then put the HTML for the rest of your page below.</p>
+<p>For example:   </p>
+<pre><code>&lt;head&gt;
+  &lt;style&gt;
+    div {
+      background-color : red;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div&gt;
+    This will have a red background.
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p><strong>Method 2: Link your HTML to a separate CSS file</strong> </p>
+<p>This adds another step, but it lets you stay more organized when working on larger projects. To do this:
+  1. Write all of your structural HTML in one file (let's call it <code>main.html</code>). 
+  2. In a separate file (let's call it <code>main.css</code>), put all of your CSS code.
+  3. Add a <code>&lt;head&gt;</code> element to the top of your HTML.
+  4. Add a <code>&lt;link&gt;</code> tag inside the <code>&lt;head&gt;</code> element. Since <code>&lt;link&gt;</code> is a "void tag" you don't need to add a closing <code>&lt;/link&gt;</code>.
+  5. Add the following attributes to your <code>&lt;link&gt;</code>:
+    * <code>rel="stylesheet"</code>
+    * <code>href="main.css"</code></p>
+    <p>For example, you would have a <code>main.html</code> file that looked like this:</p>
+    <pre><code>&lt;head&gt;
+   &lt;link rel="stylesheet" href="main.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div&gt;
+    This will have a red background.
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>and <em>in the same folder</em> you would have a file called <code>main.css</code> like this:</p>
+<pre><code>div {
+  background-color : red;
+}
+</code></pre>
+<p><strong>Method 3: Write your style <em>inline</em> with your HTML</strong></p>
+<p>This is generally a very bad idea because it leads to <strong>lots</strong> of repeated code. But you may see code that uses this method so it's good to be familiar with it. If you want to know more, check out the question and answers in <a href="http://stackoverflow.com/questions/2612483/whats-so-bad-about-in-line-css" target="_blank">this conversation</a> on Stack Overflow (Stack Overflow is the most widely used programming Q&amp;A community out there).</p>
+<p>With this method, you modify the style attributes of every individual HTML element. For example:</p>
+<pre><code>&lt;body&gt;
+  &lt;div style="background-color: red; color: white"&gt;
+    This div will have a red background and white text.
+  &lt;/div&gt;
+  &lt;div style="background-color: red; color: white"&gt;
+    So will this one.
+  &lt;/div&gt;
+  &lt;div style="background-color: red; color: white"&gt;
+    Now, what if I change my mind?
+  &lt;/div&gt;
+  &lt;div style="background-color: red; color: white"&gt;
+    I'd rather have a black background...
+  &lt;/div&gt;
+  &lt;div style="background-color: red; color: white"&gt;
+    Never do this!
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p><strong>NOTE:</strong> there are a lot of little mistakes you can and will at some point make that will cause any of these methods not to work. For example, when I was writing the code for method 2 I had <code>main.html</code> and <code>main.css</code> in different folders on my computer, and it didn't work at all.</p>
+ </body>
+ 
