@@ -1,0 +1,9 @@
+s = "cat bat mat cat bat cat"
+print(s)
+
+list_of_words = s.split()
+
+while index < len(list_of_words):
+  number = random_list[index]
+  count_list[number] = count_list[number] + 1
+  index = index + 1

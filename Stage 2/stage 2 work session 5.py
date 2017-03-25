@@ -108,7 +108,7 @@ while index < len(random_list):
 
 # Write code here to summarize count_list and print a neatly formatted table that looks
 # like this:
-
+print (count_list)
 print ("number | occurrence")
 index = 0
 num_len = len("number")
